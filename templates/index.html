@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Run Log</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var today = new Date();
+            var dateInput = document.getElementById('date');
+            var formattedDate = formatDate(today);
+            dateInput.value = formattedDate;
+        });
+
+        function formatDate(date) {
+            var year = date.getFullYear();
+            var month = String(date.getMonth() + 1).padStart(2, '0');
+            var day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Run Log</h1>
+    <form method="POST" action="/">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date"><br>
+
+        <label for="type_of_run">Type of Run:</label>
+        <input type="text" id="type_of_run" name="type_of_run"><br>
+
+        <label for="last_breakfast">Last Breakfast:</label>
+        <input type="text" id="last_breakfast" name="last_breakfast"><br>
+
+        <label for="last_lunch">Last Lunch:</label>
+        <input type="text" id="last_lunch" name="last_lunch"><br>
+
+        <label for="last_dinner">Last Dinner:</label>
+        <input type="text" id="last_dinner" name="last_dinner"><br>
+
+        <label for="nutrition_during_run">Nutrition During Run:</label>
+        <input type="text" id="nutrition_during_run" name="nutrition_during_run"><br>
+
+        <label for="water_during_run">Water During Run:</label>
+        <input type="text" id="water_during_run" name="water_during_run"><br>
+
+        <label for="known_injuries">Known Injuries:</label>
+        <input type="text" id="known_injuries" name="known_injuries"><br>
+
+        <label for="shoes">Shoes:</label>
+        <input type="text" id="shoes" name="shoes"><br>
+
+        <label for="temperature">Temperature:</label>
+        <input type="text" id="temperature" name="temperature"><br>
+
+        <label for="weight_">Weight:</label>
+        <input type="text" id="weight_" name="weight_"><br>
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br>
+
+        <button type="submit">Save Log</button>
+    </form>
+</body>
+</html>
